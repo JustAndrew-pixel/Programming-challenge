@@ -1,13 +1,7 @@
 package de.exxcellent.challenge;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Arrays;
-import java.util.OptionalDouble;
+import java.util.List;
 
 public class WeatherChallenge {
 
@@ -28,7 +22,7 @@ public class WeatherChallenge {
 
         return result;
     }
-    
+
 
     public static String findDayWithMinSpread(double[] temperatureSpreadResult, List<String[]> dayStatisticsArrays) {
 
