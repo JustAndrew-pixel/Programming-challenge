@@ -1,7 +1,6 @@
 package de.exxcellent.challenge;
 
 import java.util.List;
-import java.util.Arrays;
 
 /**
  * The entry class for your solution. This class is only aimed as starting point and not intended as baseline for your software
@@ -27,7 +26,14 @@ public final class App {
         String dayWithSmallestTempSpread = WeatherChallenge.findDayWithMinSpread(calculatedTemperatureSpreads, weatherDataWithoutHeader);     // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
-        String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
+
+        String footballFilePath = "/de/exxcellent/challenge/football.csv";
+        List<String[]> footballFileData = FileUtils.readCSVfile(footballFilePath);
+        List<String[]> footballDataWithoutHeader = FileUtils.removeCSVfileHeader(footballFileData);
+        int[] calculatedGoalDifferences = FootballChallenge.calculateAbsoluteGoalDifferences(footballDataWithoutHeader);
+
+
+        String teamWithSmallestGoalSpread = FootballChallenge.findTeamWithSmallestGoalDifference(calculatedGoalDifferences, footballDataWithoutHeader); // Your goal analysis function call …
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
     }
 }
