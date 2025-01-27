@@ -11,7 +11,7 @@ import java.util.OptionalDouble;
 
 public class WeatherChallenge {
 
-    public static double[] calculateTemperatureSpread(List<String[]> temperatureArrays) {
+    public static double[] calculateTemperatureSpreads(List<String[]> temperatureArrays) {
         if (temperatureArrays == null) {
             throw new IllegalArgumentException("Input list cannot be null");
         }
