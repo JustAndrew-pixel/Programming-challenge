@@ -20,9 +20,11 @@ public final class App {
 
         String weatherFilePath = "/de/exxcellent/challenge/weather.csv";
         List<String[]> weatherFileData = FileUtils.readCSVfile(weatherFilePath);
-        
+        List<String[]> weatherDataWithoutHeader = FileUtils.removeCSVfileHeader(weatherFileData);
+        double[] calculatedTemperatureSpreads = WeatherChallenge.calculateTemperatureSpreads(weatherDataWithoutHeader);
 
-        String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
+
+        String dayWithSmallestTempSpread = WeatherChallenge.findDayWithMinSpread(calculatedTemperatureSpreads, weatherDataWithoutHeader);     // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
         String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
