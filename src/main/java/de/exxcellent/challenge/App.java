@@ -18,8 +18,8 @@ public final class App {
     public static void main(String... args) {
 
         String weatherFilePath = "/de/exxcellent/challenge/weather.csv";
-        List<String[]> weatherFileData = FileUtils.readCSVfile(weatherFilePath);
-        List<String[]> weatherDataWithoutHeader = FileUtils.removeCSVfileHeader(weatherFileData);
+        List<String[]> weatherFileData = FileUtils.readFile(weatherFilePath);
+        List<String[]> weatherDataWithoutHeader = FileUtils.removefileHeader(weatherFileData);
         double[] calculatedTemperatureSpreads = WeatherChallenge.calculateTemperatureSpreads(weatherDataWithoutHeader);
 
 
@@ -28,8 +28,8 @@ public final class App {
 
 
         String footballFilePath = "/de/exxcellent/challenge/football.csv";
-        List<String[]> footballFileData = FileUtils.readCSVfile(footballFilePath);
-        List<String[]> footballDataWithoutHeader = FileUtils.removeCSVfileHeader(footballFileData);
+        List<String[]> footballFileData = FileUtils.readFile(footballFilePath);
+        List<String[]> footballDataWithoutHeader = FileUtils.removefileHeader(footballFileData);
         int[] calculatedGoalDifferences = FootballChallenge.calculateAbsoluteGoalDifferences(footballDataWithoutHeader);
 
 
