@@ -28,29 +28,11 @@ public class WeatherChallenge {
 
         return result;
     }
-
     
-    public static String findDayWithMinSpread(double[] temperatureSpreads, List<String[]> dayStatisticsArrays) {
-        if (temperatureSpreads == null || temperatureSpreads.length == 0) {
-            return "Temperature spread array is empty";
-        }
 
-        int dayIndexWithMinTempSpread = -1;
+    public static String findDayWithMinSpread(double[] temperatureSpreadResult, List<String[]> dayStatisticsArrays) {
 
-        OptionalDouble minSpread = Arrays.stream(temperatureSpreads).min();
-        if (minSpread.isEmpty()) {
-            return "Error: No minimum spread found";
-        }
-
-        for (int index = 0; index < temperatureSpreads.length; index++) {
-            if (temperatureSpreads[index] == minSpread.getAsDouble()) {
-                dayIndexWithMinTempSpread = index;
-                break;
-            }
-        }
-
-        return dayStatisticsArrays.get(dayIndexWithMinTempSpread)[0];
-
+        return GeneralUtils.findItemWithMinValue(temperatureSpreadResult, dayStatisticsArrays);
     }
 }
 
