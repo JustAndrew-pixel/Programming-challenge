@@ -23,7 +23,7 @@ public class FileUtils {
             throw new IllegalArgumentException("Unsupported file type: " + filePath);
         }
 
-        return fileRows;
+        return removeCSVfileHeader(fileRows);
     }
 
 
@@ -48,7 +48,7 @@ public class FileUtils {
     }
 
 
-    public static List<String[]> removefileHeader(List<String[]> fileData) {
+    public static List<String[]> removeCSVfileHeader(List<String[]> fileData) {
         if (fileData != null && !fileData.isEmpty()) {
             List<String[]> result = new ArrayList<>(fileData.subList(1, fileData.size()));
             return result;

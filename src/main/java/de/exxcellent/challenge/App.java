@@ -19,21 +19,18 @@ public final class App {
 
         String weatherFilePath = "/de/exxcellent/challenge/weather.csv";
         List<String[]> weatherFileData = FileUtils.readFile(weatherFilePath);
-        List<String[]> weatherDataWithoutHeader = FileUtils.removefileHeader(weatherFileData);
-        double[] calculatedTemperatureSpreads = WeatherChallenge.calculateTemperatureSpreads(weatherDataWithoutHeader);
+        double[] calculatedTemperatureSpreads = WeatherChallenge.calculateTemperatureSpreads(weatherFileData);
 
-
-        String dayWithSmallestTempSpread = WeatherChallenge.findDayWithMinSpread(calculatedTemperatureSpreads, weatherDataWithoutHeader);     // Your day analysis function call …
+        String dayWithSmallestTempSpread = WeatherChallenge.findDayWithMinSpread(calculatedTemperatureSpreads, weatherFileData);     // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
 
         String footballFilePath = "/de/exxcellent/challenge/football.csv";
         List<String[]> footballFileData = FileUtils.readFile(footballFilePath);
-        List<String[]> footballDataWithoutHeader = FileUtils.removefileHeader(footballFileData);
-        int[] calculatedGoalDifferences = FootballChallenge.calculateAbsoluteGoalDifferences(footballDataWithoutHeader);
+        int[] calculatedGoalDifferences = FootballChallenge.calculateAbsoluteGoalDifferences(footballFileData);
 
 
-        String teamWithSmallestGoalSpread = FootballChallenge.findTeamWithSmallestGoalDifference(calculatedGoalDifferences, footballDataWithoutHeader); // Your goal analysis function call …
+        String teamWithSmallestGoalSpread = FootballChallenge.findTeamWithSmallestGoalDifference(calculatedGoalDifferences, footballFileData); // Your goal analysis function call …
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
     }
 }
