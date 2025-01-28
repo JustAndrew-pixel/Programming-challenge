@@ -23,7 +23,7 @@ public class FileUtils {
             throw new IllegalArgumentException("Unsupported file type: " + filePath);
         }
 
-        return removeCSVfileHeader(fileRows);
+        return fileRows;
     }
 
 
@@ -37,7 +37,7 @@ public class FileUtils {
         } catch (IOException | CsvException e) {
             e.printStackTrace();
         }
-        return fileRows;
+        return removeCSVfileHeader(fileRows);
     }
 
     public static List<String[]> readJSONfile(String filePath) {
