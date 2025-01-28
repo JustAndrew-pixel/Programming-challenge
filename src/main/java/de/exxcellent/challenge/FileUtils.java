@@ -2,12 +2,16 @@ package de.exxcellent.challenge;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 public class FileUtils {
 
@@ -43,7 +47,25 @@ public class FileUtils {
     public static List<String[]> readJSONfile(String filePath) {
         List<String[]> fileRows = new ArrayList<>();
 
-        //TODO: implement method
+        try (InputStream inputStream = App.class.getResourceAsStream(filePath);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode rootNode = objectMapper.readTree(reader);
+
+
+            if (rootNode.isArray()) {
+                for (JsonNode node : rootNode) {
+                    String[] row = StreamSupport.stream(node.spliterator(), false)
+                            .map(JsonNode::asText)
+                            .toArray(String[]::new);
+                    fileRows.add(row);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return fileRows;
     }
 

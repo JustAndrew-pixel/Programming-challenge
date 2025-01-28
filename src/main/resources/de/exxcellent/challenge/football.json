@@ -1,0 +1,29 @@
+[
+  {
+    "Team": "Arsenal",
+    "Games": "38",
+    "Wins": "26",
+    "Losses": "9",
+    "Draws": "3",
+    "Goals": "79",
+    "Goals Allowed": "36"
+  },
+  {
+    "Team": "Aston_Villa",
+    "Games": "38",
+    "Wins": "12",
+    "Losses": "14",
+    "Draws": "12",
+    "Goals": "46",
+    "Goals Allowed": "47"
+  },
+  {
+    "Team": "Tottenham",
+    "Games": "38",
+    "Wins": "14",
+    "Losses": "8",
+    "Draws": "16",
+    "Goals": "49",
+    "Goals Allowed": "53"
+  }
+]
